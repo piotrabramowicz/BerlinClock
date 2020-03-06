@@ -12,7 +12,7 @@ namespace BerlinClock
         #endregion //Private Fields
 
         #region Private Properties
-        private bool Seccond
+        private bool Second
         {
             get
             {
@@ -54,7 +54,7 @@ namespace BerlinClock
         {
             get
             {
-                return Seccond ? "O" : "Y";
+                return Second ? "O" : "Y";
             }
         }
         public string FiveHoursLine
