@@ -9,7 +9,7 @@ namespace BerlinClock
             Time time = new Time(aTime);
             StringBuilder sb = new StringBuilder(24);
 
-            sb.AppendLine(time.SeccondLine);
+            sb.AppendLine(time.SecondLine);
             sb.AppendLine(time.FiveHoursLine);
             sb.AppendLine(time.OneHourLine);
             sb.AppendLine(time.FiveMinutesLine);

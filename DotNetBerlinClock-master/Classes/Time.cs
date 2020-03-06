@@ -6,7 +6,7 @@ namespace BerlinClock
     public class Time
     {
         #region Private Fields
-        private readonly int _seccond;
+        private readonly int _second;
         private readonly int _minute;
         private readonly int _hour;
         #endregion //Private Fields
@@ -16,7 +16,7 @@ namespace BerlinClock
         {
             get
             {
-                return IsOdd(_seccond);
+                return IsOdd(_second);
             }
         }
         private bool[] FiveHours
@@ -50,7 +50,7 @@ namespace BerlinClock
         #endregion //Private Properties
 
         #region Public Properties
-        public string SeccondLine
+        public string SecondLine
         {
             get
             {
@@ -114,11 +114,11 @@ namespace BerlinClock
                     StringSplitOptions.None);
                 _hour = int.Parse(time[0]);
                 _minute = int.Parse(time[1]);
-                _seccond = int.Parse(time[2]);
+                _second = int.Parse(time[2]);
            }
            else
            {
-                throw new Exception($"The time privided: {currentTime} is incorrect");
+                throw new Exception($"Tme provided: {currentTime} is incorrect.");
            }
         }
         #endregion //Ctors
