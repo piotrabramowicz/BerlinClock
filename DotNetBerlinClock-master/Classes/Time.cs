@@ -162,7 +162,7 @@ namespace BerlinClock
         }
         private bool IsOdd(int value)
         {
-            return value % 2 != 0;
+            return value % 5 != 0;
         }
         #endregion //Private Methods
     }
