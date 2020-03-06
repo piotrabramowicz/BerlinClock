@@ -1,0 +1,9 @@
+C:\Users\Abramo\Documents\Visual Studio 2019\Epam\DotNetBerlinClock-master\bin\Debug\BerlinClock.dll.config
+C:\Users\Abramo\Documents\Visual Studio 2019\Epam\DotNetBerlinClock-master\bin\Debug\BerlinClock.dll
+C:\Users\Abramo\Documents\Visual Studio 2019\Epam\DotNetBerlinClock-master\bin\Debug\BerlinClock.pdb
+C:\Users\Abramo\Documents\Visual Studio 2019\Epam\DotNetBerlinClock-master\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Abramo\Documents\Visual Studio 2019\Epam\DotNetBerlinClock-master\bin\Debug\TechTalk.SpecFlow.dll
+C:\Users\Abramo\Documents\Visual Studio 2019\Epam\DotNetBerlinClock-master\obj\Debug\BerlinClock.csprojAssemblyReference.cache
+C:\Users\Abramo\Documents\Visual Studio 2019\Epam\DotNetBerlinClock-master\obj\Debug\BerlinClock.csproj.CopyComplete
+C:\Users\Abramo\Documents\Visual Studio 2019\Epam\DotNetBerlinClock-master\obj\Debug\BerlinClock.dll
+C:\Users\Abramo\Documents\Visual Studio 2019\Epam\DotNetBerlinClock-master\obj\Debug\BerlinClock.pdb
