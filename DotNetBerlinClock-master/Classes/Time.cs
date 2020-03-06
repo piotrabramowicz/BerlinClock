@@ -16,7 +16,7 @@ namespace BerlinClock
         {
             get
             {
-                return IsOdd(_second);
+                return _second % 2 != 0;
             }
         }
         private bool[] FiveHours
@@ -159,10 +159,6 @@ namespace BerlinClock
         {
             long lastDigit = value % (10);
             return lastDigit > 4 ? lastDigit  - 5 : lastDigit;
-        }
-        private bool IsOdd(int value)
-        {
-            return value % 5 != 0;
         }
         #endregion //Private Methods
     }
