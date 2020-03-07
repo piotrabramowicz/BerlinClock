@@ -20,10 +20,10 @@ namespace BerlinClock
                 var lastDigit = GetLastDigit(_second);
                 var result = firstDigit % 2 == 0;
                 
-                if (lastDigit == 2 || 
-                    lastDigit == 3 || 
-                    lastDigit == 6 || 
-                    lastDigit == 7)
+                if(lastDigit == 2 || 
+                   lastDigit == 3 || 
+                   lastDigit == 6 || 
+                   lastDigit == 7)
                     result = !result;
 
                 return result;
@@ -91,9 +91,9 @@ namespace BerlinClock
                 {
                     if (item)
                     {
-                        if(index == 3 
-                            || index == 6 
-                            || index == 9)
+                        if(index == 3 || 
+                           index == 6 || 
+                           index == 9)
                             result += "R";
                         else
                             result += "Y";
@@ -128,7 +128,7 @@ namespace BerlinClock
            }
            else
            {
-                throw new Exception($"Tme provided: {currentTime} is incorrect.");
+                throw new Exception($"Time provided: {currentTime} is incorrect.");
            }
         }
         #endregion //Ctors
@@ -153,7 +153,7 @@ namespace BerlinClock
             }
             return result;
         }
-        private bool[] GetBerlinTime(double time, bool[] result)
+        private bool[] GetBerlinTime(int time, bool[] result)
         {
             for (int i = 0; i < time; i++)
             {
@@ -165,7 +165,7 @@ namespace BerlinClock
         {
             return value / 5;
         }
-        private double GetRemnant(int value)
+        private int GetRemnant(int value)
         {
             int lastDigit = GetLastDigit(value);
             return lastDigit > 4 ? lastDigit  - 5 : lastDigit;
