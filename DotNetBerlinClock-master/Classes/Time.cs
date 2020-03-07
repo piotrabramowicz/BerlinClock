@@ -16,7 +16,17 @@ namespace BerlinClock
         {
             get
             {
-                return _second % 2 != 0;
+                int firstDigit = (int)(_second / Math.Pow(10, (int)Math.Floor(Math.Log10(_second))));
+                var lastDigit = GetLastDigit(_second);
+                var result = firstDigit % 2 == 0;
+                
+                if (lastDigit == 2 || 
+                    lastDigit == 3 || 
+                    lastDigit == 6 || 
+                    lastDigit == 7)
+                    result = !result;
+
+                return result;
             }
         }
         private bool[] FiveHours
@@ -54,7 +64,7 @@ namespace BerlinClock
         {
             get
             {
-                return Second ? "O" : "Y";
+                return Second ? "Y" : "O";
             }
         }
         public string FiveHoursLine
@@ -157,8 +167,12 @@ namespace BerlinClock
         }
         private double GetRemnant(int value)
         {
-            long lastDigit = value % (10);
+            int lastDigit = GetLastDigit(value);
             return lastDigit > 4 ? lastDigit  - 5 : lastDigit;
+        }
+        private int GetLastDigit(int value)
+        {
+            return value % (10);
         }
         #endregion //Private Methods
     }
