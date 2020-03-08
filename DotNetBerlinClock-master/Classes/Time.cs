@@ -3,12 +3,12 @@ using System.Text.RegularExpressions;
 
 namespace BerlinClock
 {
-    public class Time
+    public abstract class Time<T>
     {
         #region Private Fields
-        private readonly int _second;
-        private readonly int _minute;
-        private readonly int _hour;
+        private int second;
+        private int minute;
+        private int hour;
         #endregion //Private Fields
 
         #region Private Properties
@@ -16,103 +16,45 @@ namespace BerlinClock
         {
             get
             {
-                int firstDigit = (int)(_second / Math.Pow(10, (int)Math.Floor(Math.Log10(_second))));
-                var lastDigit = GetLastDigit(_second);
+                int firstDigit = (int)(second / Math.Pow(10, (int)Math.Floor(Math.Log10(second))));
+                var lastDigit = GetLastDigit(second);
                 var result = firstDigit % 2 == 0;
-                
-                if(lastDigit == 2 || 
-                   lastDigit == 3 || 
-                   lastDigit == 6 || 
+
+                if (lastDigit == 2 ||
+                   lastDigit == 3 ||
+                   lastDigit == 6 ||
                    lastDigit == 7)
                     result = !result;
 
                 return result;
             }
         }
-        private bool[] FiveHours
-        {
-            get
-            {
-                return GetBerlinTime(GetFloor(_hour), new bool[4]);
-            }
-        }
-        private bool[] OneHour
-        {
-            get
-            {
-                return GetBerlinTime(GetRemnant(_hour), new bool[4]);
-            }
-        }
-        private bool[] FiveMinutes
-        {
-            get
-            {
-                return GetBerlinTime(GetFloor(_minute), new bool[11]);
-            }
-        }
-        private bool[] OneMinute
-        {
-            get
-            {
-                return GetBerlinTime(GetRemnant(_minute), new bool[4]);
-            }
-        }
+        private bool[] FiveHours => GetBerlinTime(GetFloor(hour), new bool[4]);
+        private bool[] OneHour => GetBerlinTime(GetRemnant(hour), new bool[4]);
+        private bool[] FiveMinutes => GetBerlinTime(GetFloor(minute), new bool[11]);
+        private bool[] OneMinute => GetBerlinTime(GetRemnant(minute), new bool[4]);
         #endregion //Private Properties
 
+        #region Protected Properties
+        protected abstract T HourMarkInactive { get; }
+        protected abstract T HourMarkActive { get; }
+        protected abstract T MinuteMarkInactive { get; }
+        protected abstract T MinuteMarkActive { get; }
+        #endregion //Protected Properties
+
         #region Public Properties
-        public string SecondLine
-        {
-            get
-            {
-                return Second ? "Y" : "O";
-            }
-        }
-        public string FiveHoursLine
-        {
-            get
-            {
-                return GetStringLine(FiveHours, "R");
-            }
-        }
-        public string OneHourLine
-        {
-            get 
-            {
-                return GetStringLine(OneHour, "R");
-            }
-        }
-        public string FiveMinutesLine
-        {
-            get 
-            {
-                string result = string.Empty;
-                var index = 1;
-                foreach (bool item in FiveMinutes)
-                {
-                    if (item)
-                    {
-                        if(index == 3 || 
-                           index == 6 || 
-                           index == 9)
-                            result += "R";
-                        else
-                            result += "Y";
-                    }
-                    else
-                        result += "O";
-                    index++;
-                }
-                return result;
-            }
-        }
-        public string OneMinuteLine
-        {   
-            get
-            {
-                return GetStringLine(OneMinute, "Y");
-            }
-        }
+        public T SecondMark => Second ? MinuteMarkActive : MinuteMarkInactive;
+        public T[] FiveHoursMarks => GetValue(FiveHours, HourMarkActive, HourMarkInactive);
+        public T[] OneHourMarks => GetValue(OneHour, HourMarkActive, HourMarkInactive);
+        public T[] FiveMinutesMarks => GetFiveMinutesValue(FiveMinutes, HourMarkActive, HourMarkInactive, MinuteMarkActive, MinuteMarkInactive);
+        public T[] OneMinuteMark => GetValue(OneMinute, MinuteMarkActive, MinuteMarkInactive);
         #endregion //Public Properties
+
+        #region Setters
+        protected void SetSecond(int second) => this.second = second;
+        protected void SetMinute(int minute) => this.minute = minute;
+        protected void SetHour(int hour) => this.hour = hour;
+        #endregion //Setters
 
         #region Ctors
         public Time(string currentTime)
@@ -122,36 +64,26 @@ namespace BerlinClock
                 string[] time = 
                     currentTime.Split(new[] { ":" }, 
                     StringSplitOptions.None);
-                _hour = int.Parse(time[0]);
-                _minute = int.Parse(time[1]);
-                _second = int.Parse(time[2]);
+                hour = int.Parse(time[0]);
+                minute = int.Parse(time[1]);
+                second = int.Parse(time[2]);
            }
            else
            {
                 throw new Exception($"Time provided: {currentTime} is incorrect.");
            }
         }
+        public Time()
+        { }
         #endregion //Ctors
 
         #region Private Methods
-        public bool IsValidTime(string time)
+        private bool IsValidTime(string time)
         {
             Regex checktime = 
                 new Regex(@"^([0-1]?[0-9]|2[0-4]):[0-5][0-9]:[0-5][0-9]$");
 
             return checktime.IsMatch(time);
-        }
-        private string GetStringLine(bool[] values, string timeMark)
-        {
-            string result = string.Empty;
-            foreach (bool item in values)
-            {
-                if (item)
-                    result += timeMark;
-                else
-                    result += "O";
-            }
-            return result;
         }
         private bool[] GetBerlinTime(int time, bool[] result)
         {
@@ -173,6 +105,36 @@ namespace BerlinClock
         private int GetLastDigit(int value)
         {
             return value % (10);
+        }
+        private T[] GetValue(bool[] values, T timeMarkActive, T timeMarkInactive)
+        {
+            T[] result = new T[values.Length];
+            for (int i = 0; i < values.Length; i++)
+            {
+                bool item = values[i];
+                result[i] = item ? timeMarkActive : timeMarkInactive;
+            }
+            return result;
+        }
+        private T[] GetFiveMinutesValue(bool[] values, T hourMarkActive, T hourMarkInactive, T minuteMarkActive, T minuteMarkInactive)
+        {
+            T[] result = new T[values.Length];
+            var quarterIndex = 1;
+            for (int i = 0; i < FiveMinutes.Length; i++)
+            {
+                var isQuarter = quarterIndex == 3 ||
+                                quarterIndex == 6 ||
+                                quarterIndex == 9;
+                result[i] = FiveMinutes[i]
+                    ? isQuarter
+                        ? hourMarkActive
+                        : minuteMarkActive
+                    : isQuarter
+                       ? hourMarkInactive
+                       : minuteMarkInactive;
+                quarterIndex++;
+            }
+            return result;
         }
         #endregion //Private Methods
     }

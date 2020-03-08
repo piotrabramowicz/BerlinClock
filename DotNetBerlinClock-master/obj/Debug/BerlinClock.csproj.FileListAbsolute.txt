@@ -7,3 +7,27 @@ C:\Users\Abramo\Documents\Visual Studio 2019\Epam\DotNetBerlinClock-master\obj\D
 C:\Users\Abramo\Documents\Visual Studio 2019\Epam\DotNetBerlinClock-master\obj\Debug\BerlinClock.csproj.CopyComplete
 C:\Users\Abramo\Documents\Visual Studio 2019\Epam\DotNetBerlinClock-master\obj\Debug\BerlinClock.dll
 C:\Users\Abramo\Documents\Visual Studio 2019\Epam\DotNetBerlinClock-master\obj\Debug\BerlinClock.pdb
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\bin\Debug\BerlinClock.dll.config
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\bin\Debug\BerlinClock.dll
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\bin\Debug\BerlinClock.pdb
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\bin\Debug\TechTalk.SpecFlow.dll
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\obj\Debug\BerlinClock.csprojAssemblyReference.cache
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\obj\Debug\BerlinClock.csproj.CopyComplete
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\obj\Debug\BerlinClock.dll
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\obj\Debug\BerlinClock.pdb
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\bin\Debug\System.Drawing.Primitives.dll
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\bin\Debug\Windows.Foundation.UniversalApiContract.winmd
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\bin\Debug\System.Runtime.dll
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\bin\Debug\System.ComponentModel.Primitives.dll
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\bin\Debug\System.Collections.NonGeneric.dll
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\bin\Debug\System.ComponentModel.dll
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\bin\Debug\System.Runtime.Extensions.dll
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\bin\Debug\System.Security.Principal.dll
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\bin\Debug\System.Drawing.Primitives.xml
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\bin\Debug\System.Runtime.xml
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\bin\Debug\System.ComponentModel.Primitives.xml
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\bin\Debug\System.Collections.NonGeneric.xml
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\bin\Debug\System.ComponentModel.xml
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\bin\Debug\System.Runtime.Extensions.xml
+C:\Users\Abramo\Documents\GitHub\BerlinClock\DotNetBerlinClock-master\bin\Debug\System.Security.Principal.xml

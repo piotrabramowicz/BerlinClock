@@ -1,0 +1,17 @@
+C:\Users\Abramo\Documents\GitHub\BerlinClock\BerlinClock.Api\bin\Debug\netcoreapp3.1\BerlinClock.Console.exe
+C:\Users\Abramo\Documents\GitHub\BerlinClock\BerlinClock.Api\bin\Debug\netcoreapp3.1\BerlinClock.Console.deps.json
+C:\Users\Abramo\Documents\GitHub\BerlinClock\BerlinClock.Api\bin\Debug\netcoreapp3.1\BerlinClock.Console.runtimeconfig.json
+C:\Users\Abramo\Documents\GitHub\BerlinClock\BerlinClock.Api\bin\Debug\netcoreapp3.1\BerlinClock.Console.runtimeconfig.dev.json
+C:\Users\Abramo\Documents\GitHub\BerlinClock\BerlinClock.Api\bin\Debug\netcoreapp3.1\BerlinClock.Console.dll
+C:\Users\Abramo\Documents\GitHub\BerlinClock\BerlinClock.Api\bin\Debug\netcoreapp3.1\BerlinClock.Console.pdb
+C:\Users\Abramo\Documents\GitHub\BerlinClock\BerlinClock.Api\bin\Debug\netcoreapp3.1\BerlinClock.dll
+C:\Users\Abramo\Documents\GitHub\BerlinClock\BerlinClock.Api\bin\Debug\netcoreapp3.1\TechTalk.SpecFlow.dll
+C:\Users\Abramo\Documents\GitHub\BerlinClock\BerlinClock.Api\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Abramo\Documents\GitHub\BerlinClock\BerlinClock.Api\bin\Debug\netcoreapp3.1\BerlinClock.pdb
+C:\Users\Abramo\Documents\GitHub\BerlinClock\BerlinClock.Api\bin\Debug\netcoreapp3.1\BerlinClock.dll.config
+C:\Users\Abramo\Documents\GitHub\BerlinClock\BerlinClock.Api\obj\Debug\netcoreapp3.1\BerlinClock.Console.csprojAssemblyReference.cache
+C:\Users\Abramo\Documents\GitHub\BerlinClock\BerlinClock.Api\obj\Debug\netcoreapp3.1\BerlinClock.Console.AssemblyInfoInputs.cache
+C:\Users\Abramo\Documents\GitHub\BerlinClock\BerlinClock.Api\obj\Debug\netcoreapp3.1\BerlinClock.Console.AssemblyInfo.cs
+C:\Users\Abramo\Documents\GitHub\BerlinClock\BerlinClock.Api\obj\Debug\netcoreapp3.1\BerlinClock.Console.csproj.CopyComplete
+C:\Users\Abramo\Documents\GitHub\BerlinClock\BerlinClock.Api\obj\Debug\netcoreapp3.1\BerlinClock.Console.dll
+C:\Users\Abramo\Documents\GitHub\BerlinClock\BerlinClock.Api\obj\Debug\netcoreapp3.1\BerlinClock.Console.pdb

@@ -1,0 +1,228 @@
+﻿<Window x:Class="BerlinClock.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BerlinClock.WPF"
+        mc:Ignorable="d"
+        Title="Berlin Clock" Height="300" Width="250" ResizeMode="NoResize" Icon="berlinuhr.jpg">
+
+    <Window.Resources>
+        <SolidColorBrush x:Name="HourInactive" x:Key="HourInactive">
+            <SolidColorBrush.Color>
+                <Color A="255" R="55" G="20" B="24"/>
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+        <SolidColorBrush x:Name="HourActive" x:Key="HourActive">
+            <SolidColorBrush.Color>
+                <Color A="255" R="251" G="1" B="2"/>
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+        <SolidColorBrush x:Name="MinuteInactive" x:Key="MinuteInactive">
+            <SolidColorBrush.Color>
+                <Color A="255" R="56" G="59" B="2"/>
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+        <SolidColorBrush x:Name="MinuteActive" x:Key="MinuteActive">
+            <SolidColorBrush.Color>
+                <Color A="255" R="255" G="255" B="1"/>
+            </SolidColorBrush.Color>
+        </SolidColorBrush>
+        <Style TargetType="Ellipse">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Grid.ColumnSpan" Value="10"/>
+        </Style>
+        <Style TargetType="Grid">
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        </Style>
+        <Style x:Key="BorderTemplateRoot" TargetType="Border">
+            <Setter Property="BorderBrush" Value="DarkGray"/>
+            <Setter Property="BorderThickness" Value="6"/>
+        </Style>
+        <Style x:Key="BorderTemplate" TargetType="Border" BasedOn="{StaticResource BorderTemplateRoot}">
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        </Style>
+        <Style x:Key="PanelTemplate" TargetType="Border" BasedOn="{StaticResource BorderTemplate}">
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Grid.ColumnSpan" Value="10"/>
+        </Style>
+        <Style x:Key="ScaffoldingTemplate" TargetType="Border" BasedOn="{StaticResource BorderTemplateRoot}">
+            <Setter Property="Margin" Value="0,-1,0,-1"/>
+        </Style>
+        <Style x:Key="ScaffoldingCurveTemplateRoot" TargetType="Rectangle">
+            <Setter Property="Fill" Value="Black"/>
+            <Setter Property="RadiusY" Value="3"/>
+        </Style>
+        <Style x:Key="ScaffoldingCurveTopTemplatet" TargetType="Rectangle" BasedOn="{StaticResource ScaffoldingCurveTemplateRoot}">
+            <Setter Property="RadiusX" Value="2"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Height" Value="5"/>
+        </Style>
+        <Style x:Key="ScaffoldingCurveTemplatet" TargetType="Rectangle" BasedOn="{StaticResource ScaffoldingCurveTemplateRoot}">
+            <Setter Property="RadiusX" Value="1"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="18"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="33*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.ColumnSpan="10" VerticalAlignment="Bottom" Margin="0,0,0,-3" >
+            <Ellipse Width="50" Height="50" Fill="DarkGray" Margin="0"  />
+            <Ellipse x:Name="Second" Width="40" Height="40" Fill="{StaticResource MinuteActive}" />
+        </Grid>
+        <Border Grid.Row="2" Style="{StaticResource PanelTemplate}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="25*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle x:Name="FiveHours1" Grid.Column="0" Fill="{StaticResource HourInactive}"/>
+                <Rectangle x:Name="FiveHours2" Grid.Column="2" Fill="{StaticResource HourInactive}"/>
+                <Rectangle x:Name="FiveHours3" Grid.Column="4" Fill="{StaticResource HourInactive}"/>
+                <Rectangle x:Name="FiveHours4" Grid.Column="6" Fill="{StaticResource HourInactive}"/>
+                <Border Grid.Column="1" Style="{StaticResource BorderTemplate}"/>
+                <Border Grid.Column="3" Style="{StaticResource BorderTemplate}"/>
+                <Border Grid.Column="5" Style="{StaticResource BorderTemplate}"/>
+            </Grid>
+        </Border>
+        <Border Grid.Row="4" Style="{StaticResource PanelTemplate}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="25*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle x:Name="OneHours1" Grid.Column="0" Fill="{StaticResource HourInactive}"/>
+                <Rectangle x:Name="OneHours2" Grid.Column="2" Fill="{StaticResource HourInactive}"/>
+                <Rectangle x:Name="OneHours3" Grid.Column="4" Fill="{StaticResource HourInactive}"/>
+                <Rectangle x:Name="OneHours4" Grid.Column="6" Fill="{StaticResource HourInactive}"/>
+                <Border Grid.Column="1" Style="{StaticResource BorderTemplate}"/>
+                <Border Grid.Column="3" Style="{StaticResource BorderTemplate}"/>
+                <Border Grid.Column="5" Style="{StaticResource BorderTemplate}"/>
+            </Grid>
+        </Border>
+        <Border Grid.Row="6" Style="{StaticResource PanelTemplate}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="9*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle x:Name="FiveMinutes1" Grid.Column="0" Fill="{StaticResource MinuteInactive}"/>
+                <Rectangle x:Name="FiveMinutes2" Grid.Column="2" Fill="{StaticResource MinuteInactive}"/>
+                <Rectangle x:Name="FiveMinutes3" Grid.Column="4" Fill="{StaticResource HourInactive}"/>
+                <Rectangle x:Name="FiveMinutes4" Grid.Column="6" Fill="{StaticResource MinuteInactive}"/>
+                <Rectangle x:Name="FiveMinutes5" Grid.Column="8" Fill="{StaticResource MinuteInactive}"/>
+                <Rectangle x:Name="FiveMinutes6" Grid.Column="10" Fill="{StaticResource HourInactive}"/>
+                <Rectangle x:Name="FiveMinutes7" Grid.Column="12" Fill="{StaticResource MinuteInactive}"/>
+                <Rectangle x:Name="FiveMinutes8" Grid.Column="14" Fill="{StaticResource MinuteInactive}"/>
+                <Rectangle x:Name="FiveMinutes9" Grid.Column="16" Fill="{StaticResource HourInactive}"/>
+                <Rectangle x:Name="FiveMinutes10" Grid.Column="18" Fill="{StaticResource MinuteInactive}"/>
+                <Rectangle x:Name="FiveMinutes11" Grid.Column="20" Fill="{StaticResource MinuteInactive}"/>
+                <Border Grid.Column="1" Style="{StaticResource BorderTemplate}"/>
+                <Border Grid.Column="3" Style="{StaticResource BorderTemplate}"/>
+                <Border Grid.Column="5" Style="{StaticResource BorderTemplate}"/>
+                <Border Grid.Column="7" Style="{StaticResource BorderTemplate}"/>
+                <Border Grid.Column="9" Style="{StaticResource BorderTemplate}"/>
+                <Border Grid.Column="11" Style="{StaticResource BorderTemplate}"/>
+                <Border Grid.Column="13" Style="{StaticResource BorderTemplate}"/>
+                <Border Grid.Column="15" Style="{StaticResource BorderTemplate}"/>
+                <Border Grid.Column="17" Style="{StaticResource BorderTemplate}"/>
+                <Border Grid.Column="19" Style="{StaticResource BorderTemplate}"/>
+            </Grid>
+        </Border>
+        <Border Grid.Row="8" Style="{StaticResource PanelTemplate}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="25*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle x:Name="OneMinute1" Grid.Column="0" Fill="{StaticResource MinuteInactive}"/>
+                <Rectangle x:Name="OneMinute2" Grid.Column="2" Fill="{StaticResource MinuteInactive}"/>
+                <Rectangle x:Name="OneMinute3" Grid.Column="4" Fill="{StaticResource MinuteInactive}"/>
+                <Rectangle x:Name="OneMinute4" Grid.Column="6" Fill="{StaticResource MinuteInactive}"/>
+                <Border Grid.Column="1" Style="{StaticResource BorderTemplate}"/>
+                <Border Grid.Column="3" Style="{StaticResource BorderTemplate}"/>
+                <Border Grid.Column="5" Style="{StaticResource BorderTemplate}"/>
+            </Grid>
+        </Border>
+        <Border Grid.Column="3" Grid.Row="1" Style="{StaticResource ScaffoldingTemplate}"/>
+        <Border Grid.Column="1" Grid.Row="3" Style="{StaticResource ScaffoldingTemplate}"/>
+        <Border Grid.Column="3" Grid.Row="3" Style="{StaticResource ScaffoldingTemplate}"/>
+        <Border Grid.Column="5" Grid.Row="3" Style="{StaticResource ScaffoldingTemplate}"/>
+        <Border Grid.Column="1" Grid.Row="5" Style="{StaticResource ScaffoldingTemplate}"/>
+        <Border Grid.Column="3" Grid.Row="5" Style="{StaticResource ScaffoldingTemplate}"/>
+        <Border Grid.Column="5" Grid.Row="5" Style="{StaticResource ScaffoldingTemplate}"/>
+        <Border Grid.Column="1" Grid.Row="7" Style="{StaticResource ScaffoldingTemplate}"/>
+        <Border Grid.Column="3" Grid.Row="7" Style="{StaticResource ScaffoldingTemplate}"/>
+        <Border Grid.Column="5" Grid.Row="7" Style="{StaticResource ScaffoldingTemplate}"/>
+        <Rectangle Grid.Column="2" Grid.Row="1" Margin="0,0,-1,0" Style="{StaticResource ScaffoldingCurveTopTemplatet}"/>
+        <Rectangle Grid.Column="4" Grid.Row="1" Margin="-1,0,0,0" Style="{StaticResource ScaffoldingCurveTopTemplatet}"/>
+        <Rectangle Grid.Column="0" Grid.Row="3" Margin="0,0,-2,0" Style="{StaticResource ScaffoldingCurveTemplatet}"/>
+        <Rectangle Grid.Column="2" Grid.Row="3" Margin="-2,0,-2,0" Style="{StaticResource ScaffoldingCurveTemplatet}"/>
+        <Rectangle Grid.Column="4" Grid.Row="3" Margin="-2,0,-2,0" Style="{StaticResource ScaffoldingCurveTemplatet}"/>
+        <Rectangle Grid.Column="6" Grid.Row="3" Margin="-2,0,0,0" Style="{StaticResource ScaffoldingCurveTemplatet}"/>
+        <Rectangle Grid.Column="0" Grid.Row="5" Margin="0,0,-2,0" Style="{StaticResource ScaffoldingCurveTemplatet}"/>
+        <Rectangle Grid.Column="2" Grid.Row="5" Margin="-2,0,-2,0" Style="{StaticResource ScaffoldingCurveTemplatet}"/>
+        <Rectangle Grid.Column="4" Grid.Row="5" Margin="-2,0,-2,0" Style="{StaticResource ScaffoldingCurveTemplatet}"/>
+        <Rectangle Grid.Column="6" Grid.Row="5" Margin="-2,0,0,0" Style="{StaticResource ScaffoldingCurveTemplatet}"/>
+        <Rectangle Grid.Column="0" Grid.Row="7" Margin="0,0,-2,0" Style="{StaticResource ScaffoldingCurveTemplatet}"/>
+        <Rectangle Grid.Column="2" Grid.Row="7" Margin="-2,0,-2,0" Style="{StaticResource ScaffoldingCurveTemplatet}"/>
+        <Rectangle Grid.Column="4" Grid.Row="7" Margin="-2,0,-2,0" Style="{StaticResource ScaffoldingCurveTemplatet}"/>
+        <Rectangle Grid.Column="6" Grid.Row="7" Margin="-2,0,0,0" Style="{StaticResource ScaffoldingCurveTemplatet}"/>
+    </Grid>
+</Window>
